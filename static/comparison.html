@@ -1,0 +1,117 @@
+Easily compare charter deposit insurance companies around the world. Our insurance comparison services could help you save time and money and get a more appropriate policy.<br />
+Deposit amount in EUR:&nbsp;&nbsp;<input autofocus="true" id="Deposit" max="100000" min="1" type="number" /> &nbsp;&nbsp;<button class="btn" label="Calculate Premium" onclick="Calculate();">Calculate Premium</button><br />
+&nbsp;
+<table>
+    <tbody>
+    <tr>
+        <th style="width: 15%;">Company</th>
+        <th style="width: 15%;">Price</th>
+        <th style="width: 25%;">Own risk</th>
+        <th style="width: 3%;">&nbsp;</th>
+        <th style="width: 42%;">Extra conditions</th>
+    </tr>
+    <tr style="height: 50px;">
+        <td><a href="http://www.yacht-pool.com/charter_deposit.0.html">Yacht-Pool International</a></td>
+        <td style="text-align:center"><label id="yacht-pool" style="font-weight: bold">0</label></td>
+        <td>5%, but not less than €50 per damage.</td>
+        <td>&nbsp;</td>
+        <td>Regatta risk is exceptet, but can be insured separately.</td>
+    </tr>
+    <tr style="height: 50px;">
+        <td><a href="http://www.eis-insurance.com/en/skipper-crew/deposit-insurance-for-chartered-yachts.html">European insurance services</a></td>
+        <td style="text-align:center"><label id="eis" style="font-weight: bold">0</label></td>
+        <td>10%, but not less than €100 per damage.</td>
+        <td>&nbsp;</td>
+        <td>For regata own risk 10%, but no less than €300 per damage. Year coverage is possible.</td>
+    </tr>
+    <tr style="height: 50px;">
+        <td><a href="http://www.schomacker.de/en/charter-insurance/charter-deposit-insurance.html">Hamburger Yachtversicherung Schomacker</a></td>
+        <td style="text-align:center"><label id="schomacker" style="font-weight: bold">0</label></td>
+        <td>No own risk.</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr style="height: 50px;">
+        <td><a href="http://www.pantaenius.de/en/insurance/solution-for/charter-insurance.html">Pantaenius</a></td>
+        <td style="text-align:center"><label id="pantaenius" style="font-weight: bold">0</label></td>
+        <td>€100 per loss-event.</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr style="height: 50px;">
+        <td><a href="http://www.mastundschotbruch.at/versicherungsgruppe_charter.aspx">Uniqa</a></td>
+        <td style="text-align:center"><label id="mastundschotbruch" style="font-weight: bold">0</label></td>
+        <td>10%, but not less than €100 per damage.</td>
+        <td>&nbsp;</td>
+        <td>Own risk 15%,of the deposit, min. 200,00 € per damage</td>
+    </tr>
+    <tr style="height: 50px;">
+        <td><a href="http://www.portosecuro.com/Boat-Insurances-Charter-deposit-insurance-for-chartered-yachts.html">PortoSecuro</a></td>
+        <td style="text-align:center"><label id="portosecuro" style="font-weight: bold">0</label></td>
+        <td>€70 per loss-event.</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr style="height: 50px;">
+        <td><a href="http://www.topsailinsurance.com">Topsail Insurance</a></td>
+        <td style="text-align:center"><label id="topsail" style="font-weight: bold">0</label></td>
+        <td>No info.</td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    function Calculate()
+    {
+        var deposit = parseFloat(document.getElementById('Deposit').value);
+        var yachtPool = 0;
+        if (deposit < 511) {	yachtPool = deposit/6.5;}else
+        if (deposit < 1025){	yachtPool = deposit/7.4;}else
+        if (deposit < 1300){	yachtPool = deposit/8.6;}else
+        if (deposit < 1550){	yachtPool = deposit/9.2;}else
+        if (deposit < 2050){	yachtPool = deposit/9.8;}else
+        if (deposit < 2600){	yachtPool = deposit/10.0;}else
+        if (deposit < 3050){	yachtPool = deposit/9.9;}else
+        if (deposit < 3500){	yachtPool = deposit/9.7;}else
+        if (deposit < 3750){	yachtPool = deposit/9.2;}else
+        if (deposit < 4000){	yachtPool = deposit/9.3;}else
+        if (deposit < 4500){	yachtPool = deposit/9.2;}else
+        if (deposit < 5000){	yachtPool = deposit/9.3;}else
+        {yachtPool=-1;}
+
+        var eis=0;
+        if (deposit < 3000){	eis = deposit*0.08;}
+        if (deposit >= 3000){	eis = deposit*0.07;}
+
+        var schomacker=0;
+        if (deposit < 500){	schomacker = deposit/6.7;}else
+        {	schomacker = deposit/11.5;}
+
+        var pantaenius=0;
+        if (deposit <= 3000){	pantaenius = 140;}else
+        {	pantaenius = -1;}
+
+        var uniqa=0;
+        if (deposit < 3000){	uniqa = deposit*0.08;}
+        if (deposit >= 3000){	uniqa = deposit*0.07;}
+
+        var portoSecuro=0;
+        if (deposit <= 2200){	portoSecuro = deposit*0.0828;}
+        if (deposit > 2200){	portoSecuro = deposit*0.0713;}
+
+
+        if (yachtPool == -1){
+            document.getElementById('yacht-pool').innerText='-';
+        } else {
+            document.getElementById('yacht-pool').innerText=Math.round(yachtPool)+' €';
+        }
+        document.getElementById('eis').innerText=Math.round(eis)+' €';
+        document.getElementById('schomacker').innerText=Math.round(schomacker)+' €';
+
+        if (pantaenius == -1){
+            document.getElementById('pantaenius').innerText='-';
+        } else {
+            document.getElementById('pantaenius').innerText=Math.round(pantaenius)+' €';
+        }
+        document.getElementById('mastundschotbruch').innerText=Math.round(uniqa)+' €';
+        document.getElementById('portosecuro').innerText=Math.round(portoSecuro)+' €';
+        document.getElementById('topsail').innerText= "No data";
+
+    }
+</script>
