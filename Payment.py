@@ -27,7 +27,7 @@ def send_peyment():
 
         #
         # Payment parameters:
-        # amount        Currency and value. This example creates a € 120,- payment.
+        # amount        Currency and value. This example creates a  120,- payment.
         # description   Description of the payment.
         # webhookUrl    Webhook location, used to report when the payment changes state.
         # redirectUrl   Redirect location. The customer will be redirected there after the payment.
