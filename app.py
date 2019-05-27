@@ -35,7 +35,17 @@ def hello():
         name = request.form['name']
         surname = request.form['surname']
         email = request.form['email']
-        password = request.form['password']
+        phone = request.form['phone']
+        address = request.form['address']
+        country = request.form['country']
+        companyName = request.form['companyName']
+        sailingBase = request.form['sailingBase']
+
+        startDate = request.form['startDate']
+        endDate = request.form['endDate']
+        deposit = request.form['deposit']
+
+
 
         if form.validate():
             write_to_disk(name, surname, email)
